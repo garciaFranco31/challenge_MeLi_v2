@@ -23,9 +23,8 @@ def saving_files():
     files = obtaining_files()
 
     db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        #port=int(os.getenv("PORT"),10),
+        host=os.getenv("HOST"),
+        user=os.getenv("USER"),
         password=os.getenv("PASSWORD"),
         database=os.getenv("DATABASE"),
     )
@@ -52,9 +51,9 @@ def modified_public_files():
             Si el archivo es de acceso público, lo modifica para que sea de acceso privado.
     """
     db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        #port=int(os.getenv("PORT"),10),
+   db = mysql.connector.connect(
+        host=os.getenv("HOST"),
+        user=os.getenv("USER"),
         password=os.getenv("PASSWORD"),
         database=os.getenv("DATABASE"),
     )

@@ -9,12 +9,10 @@ def setup_db():
         Crea la BD utilizando los datos que se encuentran en el archivo db_info.json, el cual está encriptado para que no se pueda obtener la información sensible de acceso a la BD.
     """
 
-    db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        #port=int(os.getenv("PORT"),10),
+ db = mysql.connector.connect(
+        host=os.getenv("HOST"),
+        user=os.getenv("USER"),
         password=os.getenv("PASSWORD"),
-        database=os.getenv("DATABASE"),
     )
     mycursor = db.cursor()
     mycursor.execute("CREATE DATABASE IF NOT EXISTS drive_inventory")
